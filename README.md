@@ -1,13 +1,15 @@
 # My simple config for the Macos Sketchybar program.
 
-*Requirements*
+** Because who doesn't want bongo cat on their status bar? **
+
+## Requirements
 
 - [jq](https://jqlang.org/)
 - [sketchybar](https://felixkratz.github.io/SketchyBar/)
 
 Both can be installed with brew
 
-# Running
+## Running
 
 1. Compile `keylistener.c` using `sudo make`
 2. start `sketchybar`
