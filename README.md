@@ -6,3 +6,9 @@
 - [sketchybar](https://felixkratz.github.io/SketchyBar/)
 
 Both can be installed with brew
+
+# Running
+
+1. Compile `keylistener.c` using `sudo make`
+2. start `sketchybar`
+3. start ./keylistener
