@@ -1,17 +1,17 @@
 #!/bin/sh
 
-# TODO: This would be much faster, if we created to image items, then just swapped them out
+# TODO: This would be much faster, if we created to image item, then just swapped them out
 
 if [ -v $BONGO_CAT_IMG ]; then
-    export BONGO_CAT_IMG="$HOME/Downloads/bongo-cat/bc-1.png"
+    export BONGO_CAT_IMG="$HOME/.config/sketchybar/bc-1.png"
 fi
 
-current=$(sketchybar --query bongo-cat-image background.image | jq '.geometry.background.image')
+current_image=$(sketchybar --query bongo-cat-image background.image | jq '.geometry.background.image')
 
-if [[ "$current" == *"bc-2"* ]] ; then
-    export BONGO_CAT_IMG="$HOME/Downloads/bongo-cat/bc-1.png"
+if [[ "$current_image" == *"bc-2"* ]] ; then
+    export BONGO_CAT_IMG="$HOME/.config/sketchybar/bc-1.png"
 else
-    export BONGO_CAT_IMG="$HOME/Downloads/bongo-cat/bc-2.png"
+    export BONGO_CAT_IMG="$HOME/.config/sketchybar/bc-2.png"
 fi
 
 sketchybar --set bongo-cat-image \
