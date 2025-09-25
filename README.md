@@ -8,6 +8,13 @@
 
 - [jq](https://jqlang.org/)
 - [sketchybar](https://felixkratz.github.io/SketchyBar/)
+- Optional: [hack nerd font](https://formulae.brew.sh/cask/font-hack-nerd-font)
+
+```sh
+brew install jq
+brew install sketchybar
+brew install --cask font-hack-nerd-font
+```
 
 Both can be installed with brew
 
