@@ -2,6 +2,8 @@
 
 ** Because who doesn't want bongo cat on their status bar? **
 
+![Bongo cat](bc-1.png)
+
 ## Requirements
 
 - [jq](https://jqlang.org/)
