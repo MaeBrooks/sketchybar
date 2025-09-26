@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <ApplicationServices/ApplicationServices.h>
 
-static char cmd[1000];
+#define USER "zoft"
+
+static char cmd[] = "sudo -u '" USER "' sketchybar --trigger update-bongo-cat-image";
 
 CGEventRef onCGEvent(CGEventTapProxy proxy,
                      CGEventType type,
@@ -10,9 +12,6 @@ CGEventRef onCGEvent(CGEventTapProxy proxy,
                      void *refcon);
 
 int main(void) {
-  const char* user = getenv("USER");
-  sprintf(cmd, "sudo -u %s sketchybar --trigger update-bongo-cat-image", user);
-
   CFMachPortRef eventTap = CGEventTapCreate(kCGSessionEventTap,
                                             kCGHeadInsertEventTap,
                                             0,
