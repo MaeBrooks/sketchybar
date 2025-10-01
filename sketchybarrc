@@ -88,16 +88,42 @@ sketchybar --add item clock right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
            --subscribe battery system_woke power_source_change
 
-sketchybar --add event update-bongo-cat-image
+BC_ASSETS="$HOME/.config/sketchybar/assets"
+add_image () {
+    local accessory=$1
+
+    for state in 1 2; do
+        local img="$BC_ASSETS/bc-${state}${accessory}.png"
+        local name="bongo-cat-${state}${accessory}-image"
+
+        sketchybar --add item $name popup.bongo-cat
+        sketchybar --subscribe $name mouse.clicked
+        sketchybar --set $name                         \
+                   drawing=off                         \
+                   click_script="$PLUGIN_DIR/$name.sh" \
+                   background.image.scale=0.25         \
+                   background.drawing=on               \
+                   background.image="$img"
+    done;
+}
 
 sketchybar --add item bongo-cat right \
            --set bongo-cat \
+             label="Kitty" label.drawing=off \
              popup.drawing=on \
-             popup.y_offset=24 \
-           --add item bongo-cat-image popup.bongo-cat \
-           --set bongo-cat-image \
-             script="$PLUGIN_DIR/bongo_cat.sh" \
-           --subscribe bongo-cat-image update-bongo-cat-image
+             popup.y_offset=19 \
+             click_script="$PLUGIN_DIR/bongo-cat-on-click.sh" \
+             script="$PLUGIN_DIR/bongo-cat-on-keyinput.sh" \
+           --subscribe bongo-cat update-bongo-cat-image
+
+add_image '' ;
+add_image '-party' ;
+add_image '-ducky' ;
+
+sketchybar --set bongo-cat-1-ducky-image drawing=on
+
+sketchybar --add event update-bongo-cat-image
+sketchybar --subscribe bongo-cat update-bongo-cat-image
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
