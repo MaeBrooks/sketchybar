@@ -120,7 +120,7 @@ add_image '' ;
 add_image '-party' ;
 add_image '-ducky' ;
 
-sketchybar --set bongo-cat-1-ducky-image drawing=on
+sketchybar --set bongo-cat-1-party-image drawing=on
 
 sketchybar --add event update-bongo-cat-image
 sketchybar --subscribe bongo-cat update-bongo-cat-image

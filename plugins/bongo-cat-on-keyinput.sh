@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# THIS SCRIPT IS RAN ON KEYBOARD INPUT!
-
-exit 0
-
 ITEMS=$(sketchybar --query bongo-cat | jq '.popup.items | @sh' | tr -d \' | tr -d \")
 
 for ITEM_NAME in $ITEMS; do
